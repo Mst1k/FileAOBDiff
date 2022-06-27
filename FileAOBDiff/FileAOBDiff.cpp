@@ -15,7 +15,7 @@ void PrintUsage()
 
 int main(uint32_t argc, const char* argv[])
 {
-    if (argc == 5)
+    if (argc == 6)
     {
         if (FileHelper::FileExist(argv[1]) && FileHelper::FileExist(argv[2]))
         {
@@ -41,6 +41,8 @@ int main(uint32_t argc, const char* argv[])
                         if (file1.mBuff[file1Offset + i] == file2.mBuff[file2Offset + i]) comparationResult += ByteHelper::Byte2String(sampleCurr);
                         else comparationResult += qMark;
                     }
+
+                    printf("\n%s\n", comparationResult.c_str());
                 }
                 else
                 {
