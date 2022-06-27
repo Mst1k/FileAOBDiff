@@ -8,3 +8,7 @@
 *.Lastbuildstate
 *.recipe
 *.ilk
+*.bin
+*.bak
+*.iobj
+*.ipdb
