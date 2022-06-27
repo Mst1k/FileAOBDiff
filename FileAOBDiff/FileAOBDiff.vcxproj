@@ -141,13 +141,31 @@
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="ByteHelper.cpp" />
+    <ClCompile Include="DialogManager.cpp" />
+    <ClCompile Include="DiffHelper.cpp" />
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="FileAOBDiff.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="FileHelper.cpp" />
+    <ClCompile Include="FilesEngine.cpp" />
+    <ClCompile Include="Pattern.cpp" />
+    <ClCompile Include="PatternByte.cpp" />
+    <ClCompile Include="PatternEngine.cpp" />
+    <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="ByteHelper.h" />
+    <ClInclude Include="DialogManager.h" />
+    <ClInclude Include="DiffHelper.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileAOBDiff.h" />
     <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="FilesEngine.h" />
+    <ClInclude Include="Pattern.h" />
+    <ClInclude Include="PatternByte.h" />
+    <ClInclude Include="PatternEngine.h" />
+    <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

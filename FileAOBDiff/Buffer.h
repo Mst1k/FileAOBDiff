@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cstdint>
+
 struct Buffer {
     unsigned char* mBuff;
-    size_t mSize;
+    uint64_t mSize;
 
     Buffer();
     ~Buffer();
