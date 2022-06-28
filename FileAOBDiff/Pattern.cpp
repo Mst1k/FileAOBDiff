@@ -49,3 +49,13 @@ void Pattern::AddWildCard()
 {
 	AddByte(0x0, true);
 }
+
+std::vector<unsigned char> Pattern::getBytes() const
+{
+	std::vector<unsigned char> bytes;
+
+	for (const PatternByte& uc : aob)
+		bytes.push_back(uc.byteType == ByteType::BYTE ? uc.byte : '?');
+
+	return bytes;
+}

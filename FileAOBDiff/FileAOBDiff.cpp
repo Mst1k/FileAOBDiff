@@ -7,6 +7,9 @@
 #include <conio.h>
 #include "Pattern.h"
 #include "DiffHelper.h"
+#include "PatternEngine.h"
+#include <functional>
+#include <thread>
 
 
 FileAOBDiff::FileAOBDiff()
@@ -75,6 +78,26 @@ void FileAOBDiff::Run()
                     DiffHelper::MakeDiff(pFile1, pFile2, file1Off, file2Off, uint64_t(diffingSize), resultDiff);
 
                     std::cout << "Result: " << resultDiff.toString() << std::endl;
+                    std::vector<uintptr_t> resultDiffFile1Ocurrences;
+                    std::vector<uintptr_t> resultDiffFile2Ocurrences;
+
+                    std::thread t1([&] {
+                        PatternEngine::FindPattern(pFile1, resultDiff, resultDiffFile1Ocurrences);
+                    });
+
+                    std::thread t2([&] {
+                        PatternEngine::FindPattern(pFile2, resultDiff, resultDiffFile2Ocurrences);
+                    });
+
+                    t1.join();
+                    t2.join();
+
+                    if (resultDiffFile1Ocurrences.size() != resultDiffFile2Ocurrences.size())
+                    {
+                        std::cout << file1Name << ": " << resultDiffFile1Ocurrences.size() << " Ocurrences\n";
+                        std::cout << file2Name << ": " << resultDiffFile2Ocurrences.size() << " Ocurrences\n";
+                    }
+                    else std::cout << "Pattern Unique!\n";                    
                 }
                 else std::cout << "Invalid Offset\n";
             }

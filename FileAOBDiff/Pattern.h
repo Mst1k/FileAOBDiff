@@ -20,5 +20,6 @@ public:
 	std::string toString();
 	void AddByte(unsigned char byte, bool bIsWildCard = false);
 	void AddWildCard();
+	std::vector<unsigned char> getBytes() const;
 };
 
